@@ -1,30 +1,30 @@
 module DataMapper
 
-  module ::Parse
-    module Protocol
-      HEADER_MASTER_KEY = "X-Parse-Master-Key"
-    end
-
-    class Client
-      def initialize(data = {})
-        @host     = data[:host] || Protocol::HOST
-        @app_id   = data[:app_id]
-        @api_key  = data[:api_key]
-        @session  = Patron::Session.new
-        @session.timeout = 10
-        @session.connect_timeout = 10
-
-        @session.base_url                 = "https://#{host}"
-        @session.headers["Content-Type"]  = data[:content_type] || "application/json"
-        @session.headers["Accept"]        = "application/json"
-        @session.headers["User-Agent"]    = "Parse for Ruby, 0.0"
-        @session.headers[Protocol::HEADER_APP_ID] = @app_id
-
-        key_type = data[:master] ? Protocol::HEADER_MASTER_KEY : Protocol::HEADER_API_KEY
-        @session.headers[key_type] = @api_key
-      end
-    end
-  end
+  # module ::Parse
+  #   module Protocol
+  #     HEADER_MASTER_KEY = "X-Parse-Master-Key"
+  #   end
+  # 
+  #   class Client
+  #     def initialize(data = {})
+  #       @host     = data[:host] || Protocol::HOST
+  #       @app_id   = data[:app_id]
+  #       @api_key  = data[:api_key]
+  #       @session  = Patron::Session.new
+  #       @session.timeout = 10
+  #       @session.connect_timeout = 10
+  # 
+  #       @session.base_url                 = "https://#{host}"
+  #       @session.headers["Content-Type"]  = data[:content_type] || "application/json"
+  #       @session.headers["Accept"]        = "application/json"
+  #       @session.headers["User-Agent"]    = "Parse for Ruby, 0.0"
+  #       @session.headers[Protocol::HEADER_APP_ID] = @app_id
+  # 
+  #       key_type = data[:master] ? Protocol::HEADER_MASTER_KEY : Protocol::HEADER_API_KEY
+  #       @session.headers[key_type] = @api_key
+  #     end
+  #   end
+  # end
 
   module Parse
 

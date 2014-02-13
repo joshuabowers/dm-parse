@@ -19,4 +19,4 @@ end
 gem "dm-core", ">= 1.2"
 gem "dm-validations", ">= 1.2"
 gem "activesupport", ">= 3.2"
-gem "parse-ruby-client", "0.1.1"
+gem "parse-ruby-client", git: "https://github.com/adelevie/parse-ruby-client.git"
